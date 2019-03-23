@@ -6,13 +6,13 @@ export default function highlightedCodeBlock (turndownService) {
       var firstChild = node.firstChild
       return (
         node.nodeName === 'DIV' &&
-        highlightRegExp.test(node.className) &&
+        highlightRegExp.test(node.getAttribute('class')) &&
         firstChild &&
         firstChild.nodeName === 'PRE'
       )
     },
     replacement: function (content, node, options) {
-      var className = node.className || ''
+      var className = node.getAttribute('class') || ''
       var language = (className.match(highlightRegExp) || [null, ''])[1]
 
       return (

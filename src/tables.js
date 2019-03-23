@@ -35,7 +35,7 @@ rules.table = {
   // Only convert tables with a heading row.
   // Tables with no heading row are kept using `keep` (see below).
   filter: function (node) {
-    return node.nodeName === 'TABLE' && isHeadingRow(node.rows[0])
+    return node.nodeName === 'TABLE' && isHeadingRow(node.getElementsByTagName('tr')[0])
   },
 
   replacement: function (content) {
@@ -91,7 +91,7 @@ function cell (content, node) {
 
 export default function tables (turndownService) {
   turndownService.keep(function (node) {
-    return node.nodeName === 'TABLE' && !isHeadingRow(node.rows[0])
+    return node.nodeName === 'TABLE' && !isHeadingRow(node.getElementsByTagName('tr')[0])
   })
   for (var key in rules) turndownService.addRule(key, rules[key])
 }

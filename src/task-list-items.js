@@ -1,10 +1,10 @@
 export default function taskListItems (turndownService) {
   turndownService.addRule('taskListItems', {
     filter: function (node) {
-      return node.type === 'checkbox' && node.parentNode.nodeName === 'LI'
+      return node.getAttribute('type') === 'checkbox' && node.parentNode.nodeName === 'LI'
     },
     replacement: function (content, node) {
-      return (node.checked ? '[x]' : '[ ]') + ' '
+      return (node.getAttribute('checked') !== null ? '[x]' : '[ ]') + ' '
     }
   })
 }
