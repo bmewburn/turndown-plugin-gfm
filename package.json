@@ -1,5 +1,5 @@
 {
-  "name": "turndown-plugin-gfm",
+  "name": "@bmewburn/turndown-plugin-gfm",
   "description": "Turndown plugin to add GitHub Flavored Markdown extensions.",
   "version": "1.0.2",
   "author": "Dom Christie",
